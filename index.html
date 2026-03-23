@@ -1,4 +1,4 @@
-v<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -38,7 +38,7 @@ v<!DOCTYPE html>
     .section-title{font-family:"Cormorant Garamond",serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:300;line-height:1.15;color:var(--pine);margin-bottom:1.4rem;}
     .section-title em{font-style:italic;color:var(--sage);}
     .section-body{font-size:0.97rem;line-height:1.85;color:#4a5550;font-weight:300;}
-    .hero{height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;}
+    .hero{height:100vh;min-height:600px;position:relative;display:flex;align-items:center;overflow:hidden;}
     .hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,58,42,0.72) 0%,rgba(20,28,23,0.55) 50%,rgba(26,58,42,0.3) 100%),url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;animation:zoomSlow 22s ease-in-out infinite alternate;}
     @keyframes zoomSlow{from{transform:scale(1)}to{transform:scale(1.06)}}
     .mountain-svg{position:absolute;bottom:0;left:0;right:0;width:100%;pointer-events:none;}
@@ -55,11 +55,6 @@ v<!DOCTYPE html>
     .trust-bar{background:var(--pine);padding:1.4rem 4rem;display:flex;align-items:center;justify-content:space-around;gap:2rem;flex-wrap:wrap;}
     .trust-item{display:flex;align-items:center;gap:0.8rem;color:rgba(232,239,233,0.85);font-size:0.82rem;letter-spacing:0.05em;}
     .trust-item::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
-    .photo-strip{display:grid;grid-template-columns:repeat(5,1fr);height:300px;overflow:hidden;}
-    .photo-strip-item{overflow:hidden;position:relative;}
-    .photo-strip-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;filter:saturate(0.85);display:block;}
-    .photo-strip-item:hover img{transform:scale(1.08);filter:saturate(1.1);}
-    .photo-strip-item::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(26,58,42,0.35));}
     .about{background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
     .about-images{position:relative;height:500px;}
     .about-img-main{position:absolute;top:0;left:0;width:75%;height:85%;object-fit:cover;border-radius:3px;box-shadow:20px 20px 60px rgba(26,58,42,0.15);display:block;}
@@ -199,8 +194,6 @@ v<!DOCTYPE html>
       .services{padding:5rem 2rem;}
       .services-header{grid-template-columns:1fr;}
       .services-grid{grid-template-columns:repeat(2,1fr);}
-      .photo-strip{grid-template-columns:repeat(3,1fr);height:200px;}
-      .photo-strip-item:nth-child(4),.photo-strip-item:nth-child(5){display:none;}
       .ad-split{grid-template-columns:1fr;}
       .ad-img{min-height:280px;}
       .approach{padding:5rem 2rem;}
@@ -227,8 +220,17 @@ v<!DOCTYPE html>
       .services-grid{grid-template-columns:1fr;}
       .about-stats{grid-template-columns:1fr 1fr;}
       .footer-grid{grid-template-columns:1fr;}
-      .hero-content{padding:0 1.5rem;}
+      .hero-content{padding:80px 1.5rem 2rem;}
       .proof-grid{grid-template-columns:1fr;}
+    }
+
+    @media(max-width:480px){
+      .hero h1{font-size:2.2rem;line-height:1.12;}
+      .hero p{font-size:0.9rem;}
+      .hero-badge{font-size:0.62rem;letter-spacing:0.12em;}
+      .hero-btns{flex-direction:column;}
+      .hero-btns a{text-align:center;}
+      .trust-bar{display:none;}
     }
   </style>
 </head>
@@ -287,13 +289,6 @@ v<!DOCTYPE html>
   <div class="trust-item">(208) 423-8132</div>
 </div>
 
-<div class="photo-strip">
-  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=500&q=80" alt="Healthy family" loading="lazy"/></div>
-  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=500&q=80" alt="Idaho mountains" loading="lazy"/></div>
-  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=500&q=80" alt="Care" loading="lazy"/></div>
-  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=500&q=80" alt="Hiking trails" loading="lazy"/></div>
-  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80" alt="Mountain landscape" loading="lazy"/></div>
-</div>
 
 <section class="about" id="about">
   <div class="about-images reveal">
@@ -461,7 +456,7 @@ v<!DOCTYPE html>
   <div class="cal-info-strip">
     <div class="cal-info-card"><div class="cl">Hours</div><div class="cv">Mon &ndash; Thu &nbsp;|&nbsp; 9:00 AM &ndash; 4:00 PM<br>Closed Fridays</div></div>
     <div class="cal-info-card"><div class="cl">Phone &amp; Fax</div><div class="cv">(208) 423-8132 &nbsp;|&nbsp; Fax: (208) 203-6420</div></div>
-    <div class="cal-info-card"><div class="cl">Email</div><div class="cv"><a href="mailto:info@rothfamilymed.com" style="color:var(--stone)">info@rothfamilymed.com</a></div></div>
+    <div class="cal-info-card"><div class="cl">Email</div><div class="cv"><a href="mailto:info@rothfamilymed.com" style="color:inherit">info@rothfamilymed.com</a></div></div>
   </div>
   <div class="calendly-wrap">
     <iframe src="https://koalendar.com/e/RothFamilyMed?embed=true" width="100%" height="700" frameborder="0" scrolling="yes" title="Book an Appointment - Roth Family Medicine" allow="payment" style="border:none;border-radius:4px;"></iframe>
@@ -481,7 +476,7 @@ v<!DOCTYPE html>
       <div class="contact-item"><div class="contact-line"></div><div><h5>Address</h5><p>Pocatello, Idaho 83201<br>Bannock County</p></div></div>
       <div class="contact-item"><div class="contact-line"></div><div><h5>Phone &amp; Fax</h5><p><a href="tel:12084238132">(208) 423-8132</a><br>Fax: (208) 203-6420</p></div></div>
       <div class="contact-item"><div class="contact-line"></div><div><h5>Office Hours</h5><p>Monday &ndash; Thursday: 9:00 AM &ndash; 4:00 PM<br>Closed Fridays</p></div></div>
-      <div class="contact-item"><div class="contact-line"></div><div><h5>Email &amp; Text</h5><p><a href="mailto:info@rothfamilymed.com" style="color:var(--stone)">info@rothfamilymed.com</a><br><a href="sms:12084238132">Text us anytime</a></p></div></div>
+      <div class="contact-item"><div class="contact-line"></div><div><h5>Email &amp; Text</h5><p><a href="mailto:info@rothfamilymed.com" style="color:inherit">info@rothfamilymed.com</a><br><a href="sms:12084238132">Text us anytime</a></p></div></div>
     </div>
     <div style="display:flex;gap:1rem;flex-wrap:wrap">
       <a href="tel:12084238132" class="btn-primary">Call to Schedule</a>
@@ -526,7 +521,7 @@ v<!DOCTYPE html>
         <li><a href="tel:12084238132">(208) 423-8132</a></li>
         <li>Fax: (208) 203-6420</li>
         <li>Mon&ndash;Thu: 9am&ndash;4pm</li>
-        <li><a href="mailto:info@rothfamilymed.com" style="color:var(--stone)">info@rothfamilymed.com</a></li>
+        <li><a href="mailto:info@rothfamilymed.com" style="color:inherit">info@rothfamilymed.com</a></li>
       </ul>
     </div>
   </div>
