@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roth Family Medicine & Mental Health | Pocatello, Idaho</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --pine:  #1a3a2a;
+      --sage:  #4a7c59;
+      --mist:  #e8efe9;
+      --stone: #8a9b8e;
+      --gold:  #b8933a;
+      --cream: #f7f4ee;
+      --dark:  #141c17;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(26,58,42,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--cream); letter-spacing: 0.02em; line-height: 1.3; }
+    .nav-logo span { color: var(--gold); font-style: italic; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(232,239,233,0.8); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold) !important; color: var(--white) !important; padding: 0.6rem 1.3rem !important; border-radius: 2px; font-weight: 500 !important; }
+    .nav-cta:hover { background: #a07d2e !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--cream); display: block; }
+    .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--pine); padding: 2rem; z-index: 99; flex-direction: column; gap: 1.5rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--cream); text-decoration: none; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* BUTTONS */
+    .btn-primary { background: var(--gold); color: var(--white); padding: 1rem 2.2rem; border: none; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 0.3s, transform 0.2s; display: inline-block; }
+    .btn-primary:hover { background: #a07d2e; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--white); padding: 1rem 2.2rem; border: 1px solid rgba(255,255,255,0.5); border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: border-color 0.3s, background 0.3s; }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+    .btn-white { background: var(--white); color: var(--gold); padding: 1rem 2.5rem; border: none; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; font-weight: 500; white-space: nowrap; transition: transform 0.2s; display: inline-block; }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    /* SHARED */
+    section { padding: 7rem 4rem; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.8rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.15; color: var(--pine); margin-bottom: 1.5rem; }
+    .section-title em { font-style: italic; color: var(--sage); }
+    .section-body { font-size: 1rem; line-height: 1.85; color: #4a5550; max-width: 580px; font-weight: 300; }
+
+    /* HERO */
+    .hero { height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(26,58,42,0.72) 0%, rgba(20,28,23,0.55) 50%, rgba(26,58,42,0.3) 100%), url('https://picsum.photos/id/29/1800/1200') center/cover no-repeat; animation: zoomSlow 22s ease-in-out infinite alternate; }
+    @keyframes zoomSlow { from { transform: scale(1); } to { transform: scale(1.06); } }
+    .mountain-svg { position: absolute; bottom: 0; left: 0; right: 0; width: 100%; pointer-events: none; }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; padding: 0 4rem; animation: fadeUp 1.2s ease both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(184,147,58,0.25); border: 1px solid rgba(184,147,58,0.5); color: #e2c97e; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 2px; margin-bottom: 1.6rem; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 1.4rem; }
+    .hero h1 em { font-style: italic; color: #c8dde0; }
+    .hero p { font-size: 1.05rem; color: rgba(232,239,233,0.85); line-height: 1.8; max-width: 520px; margin-bottom: 2.4rem; font-weight: 300; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; z-index: 2; }
+    .scroll-hint::after { content: ''; width: 1px; height: 50px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+    /* PHOTO STRIP */
+    .photo-strip { padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); height: 340px; overflow: hidden; }
+    .photo-strip-item { overflow: hidden; position: relative; }
+    .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: saturate(0.85); }
+    .photo-strip-item:hover img { transform: scale(1.08); filter: saturate(1); }
+    .photo-strip-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(26,58,42,0.4)); }
+
+    /* ABOUT */
+    .about { background: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-images { position: relative; height: 520px; }
+    .about-img-main { position: absolute; top: 0; left: 0; width: 75%; height: 85%; object-fit: cover; border-radius: 3px; box-shadow: 20px 20px 60px rgba(26,58,42,0.15); }
+    .about-img-accent { position: absolute; bottom: 0; right: 0; width: 55%; height: 55%; object-fit: cover; border-radius: 3px; border: 6px solid var(--white); box-shadow: 10px 10px 40px rgba(26,58,42,0.12); }
+    .about-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--pine); color: var(--cream); width: 110px; height: 110px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 3px solid var(--gold); font-family: 'Cormorant Garamond', serif; z-index: 2; }
+    .about-badge .num { font-size: 2rem; font-weight: 600; color: var(--gold); line-height: 1; }
+    .about-badge .txt { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .stat { border-left: 2px solid var(--sage); padding-left: 1rem; }
+    .stat .n { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--pine); line-height: 1; }
+    .stat .l { font-size: 0.78rem; color: var(--stone); margin-top: 0.3rem; }
+
+    /* SERVICES */
+    .services { background: var(--pine); position: relative; overflow: hidden; }
+    .services::before { content: ''; position: absolute; inset: 0; background: url('https://picsum.photos/id/28/1800/1200') center/cover; opacity: 0.06; }
+    .services .section-label { color: var(--gold); }
+    .services .section-title { color: var(--cream); }
+    .services .section-body { color: rgba(232,239,233,0.7); }
+    .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; position: relative; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; position: relative; }
+    .service-card { background: rgba(232,239,233,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem 2rem; transition: background 0.4s, transform 0.3s; cursor: default; position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transition: transform 0.4s; }
+    .service-card:hover { background: rgba(232,239,233,0.08); transform: translateY(-4px); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+    .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--cream); margin-bottom: 0.8rem; font-weight: 400; }
+    .service-card p { font-size: 0.85rem; color: rgba(232,239,233,0.6); line-height: 1.75; }
+    .service-tag { display: inline-block; margin-top: 1rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(184,147,58,0.4); padding: 0.25rem 0.6rem; border-radius: 2px; }
+
+    /* NATURE BANNER */
+    .nature-banner { padding: 0; height: 480px; position: relative; overflow: hidden; display: flex; align-items: center; }
+    .nature-banner-bg { position: absolute; inset: 0; background: linear-gradient(to right, rgba(26,58,42,0.88) 0%, rgba(26,58,42,0.5) 50%, rgba(26,58,42,0.2) 100%), url('https://picsum.photos/id/15/1800/800') center/cover no-repeat; }
+    .nature-banner-content { position: relative; z-index: 2; width: 100%; padding: 0 4rem; max-width: 640px; }
+    .nature-banner h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4.5vw, 4rem); color: var(--white); font-weight: 300; line-height: 1.15; margin-bottom: 1.5rem; }
+    .nature-banner h2 em { font-style: italic; color: #c8dde0; }
+    .nature-banner p { color: rgba(232,239,233,0.8); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; }
+
+    /* APPROACH */
+    .approach { background: var(--mist); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .approach-pillars { display: flex; flex-direction: column; gap: 1.5rem; }
+    .pillar { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.5rem; background: var(--white); border-radius: 3px; transition: box-shadow 0.3s; }
+    .pillar:hover { box-shadow: 0 8px 32px rgba(26,58,42,0.1); }
+    .pillar-icon { width: 48px; height: 48px; flex-shrink: 0; background: var(--pine); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+    .pillar h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--pine); margin-bottom: 0.4rem; }
+    .pillar p { font-size: 0.85rem; color: var(--stone); line-height: 1.7; }
+
+    /* WELCOME */
+    .welcome { background: var(--white); display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
+    .welcome-img-wrap { position: relative; }
+    .welcome-img { width: 100%; height: 560px; object-fit: cover; border-radius: 3px; }
+    .welcome-quote { position: absolute; bottom: -2rem; right: -2rem; background: var(--pine); color: var(--cream); padding: 2rem; max-width: 280px; border-radius: 3px; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; line-height: 1.6; }
+    .welcome-quote::before { content: '\201C'; font-size: 4rem; line-height: 0.5; color: var(--gold); display: block; margin-bottom: 0.8rem; }
+
+    /* TESTIMONIALS */
+    .testimonials { background: var(--cream); text-align: center; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+    .testimonial { background: var(--white); padding: 2.5rem; border-radius: 3px; text-align: left; transition: box-shadow 0.3s; }
+    .testimonial:hover { box-shadow: 0 12px 40px rgba(26,58,42,0.1); }
+    .testimonial::before { content: '\201C'; font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: var(--sage); opacity: 0.2; line-height: 0.8; display: block; margin-bottom: 0.5rem; }
+    .testimonial p { font-size: 0.9rem; color: #4a5550; line-height: 1.8; font-style: italic; }
+    .testimonial-author { margin-top: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+    .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--mist); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .author-name { font-size: 0.82rem; font-weight: 500; color: var(--pine); }
+    .stars { color: var(--gold); font-size: 0.85rem; margin-top: 0.2rem; letter-spacing: 2px; }
+
+    /* SCHEDULING */
+    .scheduling { background: var(--mist); }
+    .cal-box { max-width: 860px; margin: 0 auto; background: var(--white); border-radius: 4px; box-shadow: 0 20px 60px rgba(26,58,42,0.1); padding: 4rem 3rem; text-align: center; }
+    .cal-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--pine); margin-bottom: 1rem; font-weight: 400; }
+    .cal-sub { color: var(--stone); font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cal-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2.5rem 0; }
+    .cal-card { background: var(--mist); padding: 1.5rem 1rem; border-radius: 3px; }
+    .cal-card .ci { font-size: 1.6rem; margin-bottom: 0.6rem; }
+    .cal-card .cl { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pine); font-weight: 500; }
+    .cal-card .cv { font-size: 0.85rem; color: var(--stone); margin-top: 0.4rem; line-height: 1.6; }
+    .cal-tip { margin-top: 2rem; padding: 1.5rem; background: rgba(26,58,42,0.05); border-radius: 3px; border-left: 3px solid var(--gold); text-align: left; }
+    .cal-tip p { font-size: 0.82rem; color: var(--stone); line-height: 1.7; }
+    .cal-tip a { color: var(--sage); }
+    .cal-tip strong { color: var(--pine); }
+
+    /* CTA STRIP */
+    .cta-strip { background: var(--gold); padding: 3.5rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .cta-strip h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--white); font-weight: 300; }
+    .cta-strip h3 em { font-style: italic; }
+
+    /* LOCATION */
+    .location { background: var(--pine); display: grid; grid-template-columns: 1fr 1fr; padding: 0; }
+    .location-info { padding: 6rem 4rem; }
+    .location-info .section-label { color: var(--gold); }
+    .location-info .section-title { color: var(--cream); margin-bottom: 2rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .contact-icon { width: 40px; height: 40px; flex-shrink: 0; background: rgba(255,255,255,0.08); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .contact-item h5 { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .contact-item p { font-size: 0.9rem; color: rgba(232,239,233,0.8); line-height: 1.6; }
+    .location-map { background: url('https://picsum.photos/id/28/900/600') center/cover no-repeat; position: relative; min-height: 400px; }
+    .location-map::before { content: ''; position: absolute; inset: 0; background: rgba(26,58,42,0.3); }
+    .map-pin { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; z-index: 2; }
+    .map-pin-dot { width: 20px; height: 20px; background: var(--gold); border-radius: 50%; border: 3px solid var(--white); margin: 0 auto 0.5rem; box-shadow: 0 0 0 8px rgba(184,147,58,0.3); animation: ping 2s ease-in-out infinite; }
+    @keyframes ping { 0%,100%{box-shadow:0 0 0 8px rgba(184,147,58,0.3)} 50%{box-shadow:0 0 0 16px rgba(184,147,58,0.1)} }
+    .map-pin-label { background: var(--pine); color: var(--cream); padding: 0.5rem 1rem; border-radius: 2px; font-size: 0.75rem; letter-spacing: 0.1em; white-space: nowrap; }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 4rem 4rem 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.7; margin-top: 0.8rem; }
+    .footer-col h6 { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col ul li, .footer-col ul li a { font-size: 0.85rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
+    .footer-col ul li a:hover { color: var(--cream); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      nav { padding: 1.2rem 2rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 5rem 2rem; }
+      .about, .approach, .welcome { grid-template-columns: 1fr; }
+      .about-images { height: 350px; }
+      .services-header { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .photo-strip { grid-template-columns: repeat(3, 1fr); height: 220px; }
+      .photo-strip-item:nth-child(4), .photo-strip-item:nth-child(5) { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .location { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .cta-strip { flex-direction: column; text-align: center; padding: 3rem 2rem; }
+      .hero-content { padding: 0 2rem; }
+      .welcome-quote { position: static; margin-top: 1.5rem; max-width: 100%; }
+      .cal-info-grid { grid-template-columns: 1fr; }
+      .appt-type-grid { grid-template-columns: 1fr !important; }
+      .scheduling { padding: 5rem 2rem; }
+      .cal-box { padding: 2.5rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .photo-strip { grid-template-columns: repeat(2, 1fr); }
+      .photo-strip-item:nth-child(3) { display: none; }
+      .about-stats { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Roth Family Medicine<br><span>&amp; Mental Health</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#approach">Our Approach</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#schedule" class="nav-cta">Book Appointment</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#approach" onclick="toggleMenu()">Our Approach</a>
+  <a href="#schedule" onclick="toggleMenu()">Schedule</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#schedule" onclick="toggleMenu()" style="color:var(--gold)">Book Appointment</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="mountain-svg" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,200 L0,140 L120,80 L240,120 L380,40 L520,100 L640,20 L760,90 L880,50 L1000,110 L1120,60 L1260,130 L1440,70 L1440,200 Z" fill="rgba(247,244,238,0.12)"/>
+    <path d="M0,200 L0,160 L180,110 L320,150 L460,80 L580,130 L720,60 L840,120 L960,85 L1100,140 L1240,100 L1440,130 L1440,200 Z" fill="rgba(247,244,238,0.08)"/>
+    <path d="M0,200 L0,180 L200,160 L400,170 L600,155 L800,165 L1000,158 L1200,168 L1440,155 L1440,200 Z" fill="rgba(247,244,238,0.06)"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-badge">&#128205; Pocatello, Idaho &nbsp;&middot;&nbsp; Serving All Ages</div>
+    <h1>Rooted in the Mountains,<br><em>Dedicated to Your Health</em></h1>
+    <p>Comprehensive family medicine and mental health care for the Pocatello community — where the spirit of the Idaho highlands meets compassionate, whole-person healing.</p>
+    <div class="hero-btns">
+      <a href="#schedule" class="btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-item"><img src="https://picsum.photos/id/1062/500/400" alt="Healthy family outdoors"/></div>
+  <div class="photo-strip-item"><img src="https://picsum.photos/id/29/500/400" alt="Idaho mountains"/></div>
+  <div class="photo-strip-item"><img src="https://picsum.photos/id/26/500/400" alt="Doctor with patient"/></div>
+  <div class="photo-strip-item"><img src="https://picsum.photos/id/1036/500/400" alt="Hiking Idaho trails"/></div>
+  <div class="photo-strip-item"><img src="https://picsum.photos/id/281/500/400" alt="Mountain landscape"/></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-images reveal">
+    <img class="about-img-main" src="https://picsum.photos/id/395/700/600" alt="Medical care"/>
+    <img class="about-img-accent" src="https://picsum.photos/id/15/500/400" alt="Idaho nature"/>
+    <div class="about-badge">
+      <span class="num">&#9733;</span>
+      <span class="txt">Pocatello's Trusted Provider</span>
+    </div>
+  </div>
+  <div class="reveal">
+    <p class="section-label">About Our Practice</p>
+    <h2 class="section-title">Medicine as <em>Personal</em><br>as the Land We Call Home</h2>
+    <p class="section-body">At Roth Family Medicine &amp; Mental Health, we believe your health journey is as unique as the Portneuf Valley landscape. We combine evidence-based medicine with a deep understanding of our mountain community to deliver care that truly fits your life.</p>
+    <p class="section-body" style="margin-top:1rem">From newborns to grandparents, from preventive wellness to complex chronic conditions — we're your lifelong partners in health, right here in Pocatello.</p>
+    <div class="about-stats">
+      <div class="stat"><div class="n">All Ages</div><div class="l">Newborn to Senior Care</div></div>
+      <div class="stat"><div class="n">Whole-Person</div><div class="l">Body, Mind &amp; Spirit</div></div>
+      <div class="stat"><div class="n">Integrative</div><div class="l">Conventional + Functional</div></div>
+      <div class="stat"><div class="n">Local</div><div class="l">Proudly Serving Pocatello</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div class="reveal">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Comprehensive Care<br><em>Under One Roof</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="section-body">From routine checkups to advanced wellness therapies, we offer a full spectrum of medical and mental health services — so you never have to look far for the care you need.</p>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">&#127973;</div>
+      <h3>Family Medicine</h3>
+      <p>Primary care for every age — from well-child visits and school physicals to adult preventive care, acute illness, and chronic disease management.</p>
+      <span class="service-tag">All Ages Welcome</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#129504;</div>
+      <h3>Mental Health</h3>
+      <p>Compassionate treatment for anxiety, depression, ADHD, PTSD, and more. Medication management and coordinated behavioral health support.</p>
+      <span class="service-tag">Integrated Care</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#9878;&#65039;</div>
+      <h3>Weight Loss Medicine</h3>
+      <p>Medically supervised weight management including GLP-1 medications (Semaglutide, Tirzepatide), nutritional counseling, and sustainable lifestyle planning.</p>
+      <span class="service-tag">GLP-1 Available</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#9889;</div>
+      <h3>Hormone Therapy</h3>
+      <p>Bioidentical hormone replacement therapy (BHRT) for men and women. Testosterone optimization, menopause management, thyroid support, and adrenal health.</p>
+      <span class="service-tag">BHRT &middot; HRT &middot; TRT</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#127807;</div>
+      <h3>Functional Medicine</h3>
+      <p>Root-cause medicine that looks beyond symptoms. Advanced lab testing, gut health, inflammation, nutrient optimization, and personalized healing protocols.</p>
+      <span class="service-tag">Root-Cause Focus</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#128137;</div>
+      <h3>IV Therapy &amp; Infusions</h3>
+      <p>Customized IV nutrient therapy for energy, immunity, hydration, athletic recovery, and NAD+ infusions for cellular rejuvenation and cognitive support.</p>
+      <span class="service-tag">Wellness Infusions</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#128118;</div>
+      <h3>Pediatric &amp; Well-Child</h3>
+      <p>Newborn care, immunizations, developmental screenings, ADHD evaluation, and adolescent medicine in a warm, family-friendly environment.</p>
+      <span class="service-tag">Newborn to Teen</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#10084;&#65039;</div>
+      <h3>Chronic Disease Management</h3>
+      <p>Ongoing care for diabetes, hypertension, heart disease, asthma, autoimmune conditions, and metabolic syndrome with personalized treatment plans.</p>
+      <span class="service-tag">Long-Term Wellness</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#129514;</div>
+      <h3>Preventive Wellness</h3>
+      <p>Annual exams, cancer screenings, laboratory testing, cardiovascular risk assessment, and lifestyle medicine to keep you thriving for decades to come.</p>
+      <span class="service-tag">Stay Ahead of Disease</span>
+    </div>
+  </div>
+</section>
+
+<!-- NATURE BANNER -->
+<div class="nature-banner">
+  <div class="nature-banner-bg"></div>
+  <div class="nature-banner-content reveal">
+    <h2>Inspired by the <em>Portneuf Valley.</em><br>Committed to Your Vitality.</h2>
+    <p>Pocatello's mountains remind us daily that strength, resilience, and beauty are built over time. We bring that same philosophy to your healthcare — steady, grounded, and built to last.</p>
+    <a href="#schedule" class="btn-primary">Start Your Wellness Journey</a>
+  </div>
+</div>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="reveal">
+    <p class="section-label">Our Philosophy</p>
+    <h2 class="section-title">The <em>Roth Approach</em><br>to Whole-Person Health</h2>
+    <p class="section-body">We don't just treat disease — we cultivate health. Our integrative model blends the best of conventional medicine with functional and lifestyle approaches, addressing the root causes that drive most chronic illness.</p>
+    <p class="section-body" style="margin-top:1rem">You deserve a provider who listens, thinks deeply, and partners with you for the long haul. That's exactly what we offer.</p>
+    <a href="#schedule" class="btn-primary" style="margin-top:2rem">Schedule a Consultation</a>
+  </div>
+  <div class="approach-pillars reveal">
+    <div class="pillar">
+      <div class="pillar-icon">&#128269;</div>
+      <div>
+        <h4>Root-Cause Thinking</h4>
+        <p>We investigate the why behind your symptoms — using advanced labs, detailed history, and functional testing to find answers, not just manage problems.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">&#129309;</div>
+      <div>
+        <h4>Personalized Partnerships</h4>
+        <p>Your care plan is built around your unique biology, lifestyle, values, and goals — not a one-size-fits-all protocol.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">&#127807;</div>
+      <div>
+        <h4>Integrative &amp; Evidence-Based</h4>
+        <p>We blend conventional medicine with nutrition, lifestyle, functional labs, and innovative therapies — always grounded in science.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">&#128172;</div>
+      <div>
+        <h4>Mental &amp; Physical Unity</h4>
+        <p>Body and mind are inseparable. Our co-located mental health services ensure nothing falls through the cracks in your total wellbeing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WELCOME -->
+<section class="welcome">
+  <div class="welcome-img-wrap reveal">
+    <img class="welcome-img" src="https://picsum.photos/id/433/700/700" alt="Healthcare provider"/>
+    <div class="welcome-quote">
+      Health is not the absence of disease &mdash; it's the fullness of life lived well.
+    </div>
+  </div>
+  <div class="reveal">
+    <p class="section-label">A Message from Our Practice</p>
+    <h2 class="section-title">Welcome to<br><em>Roth Family Medicine</em></h2>
+    <p class="section-body">We started this practice with a simple belief: that people in Pocatello deserve access to advanced, compassionate, comprehensive care without having to drive to Boise or Salt Lake City.</p>
+    <p class="section-body" style="margin-top:1rem">Whether you're coming in for a routine physical, navigating a new diagnosis, or ready to take a deep dive into optimizing your health — our doors are open, and we're genuinely honored to be part of your story.</p>
+    <p class="section-body" style="margin-top:1rem">We serve patients of all ages and all walks of life. Our practice is a judgment-free zone where your goals become our goals.</p>
+    <a href="#schedule" class="btn-primary" style="margin-top:2rem">Book Your Visit</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="section-label">Patient Stories</p>
+  <h2 class="section-title" style="text-align:center">What Our Patients Are <em>Saying</em></h2>
+  <p class="section-body" style="text-align:center;margin:0 auto 3.5rem">Real experiences from the Pocatello community.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial reveal">
+      <p>I've been to many providers over the years and never felt truly heard. Roth Family Medicine changed that. They actually took time to understand my whole health picture &mdash; not just my symptoms.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">&#128105;</div>
+        <div>
+          <div class="author-name">Sarah M. &mdash; Pocatello, ID</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <p>The weight loss program here is unlike anything I've tried. They combined medication with real lifestyle coaching. I've lost 38 lbs and feel better than I did in my 30s.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">&#128104;</div>
+        <div>
+          <div class="author-name">Tom B. &mdash; Chubbuck, ID</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <p>The hormone therapy has been life-changing. I finally feel like myself again. The team explained everything clearly and checked in throughout the process. Highly recommend.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">&#128105;</div>
+        <div>
+          <div class="author-name">Linda K. &mdash; Pocatello, ID</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULING -->
+<section class="scheduling" id="schedule">
+  <div class="reveal" style="text-align:center;max-width:700px;margin:0 auto 3rem">
+    <p class="section-label">Online Scheduling</p>
+    <h2 class="section-title" style="text-align:center;margin:0 auto 1rem">Book Your <em>Appointment</em></h2>
+    <p class="section-body" style="text-align:center;margin:0 auto">Select a time that works for you below. Prefer to call? Reach us at <a href="tel:2084238132" style="color:var(--sage);font-weight:500">(208) 423-8132</a>.</p>
+
+    <!-- Appointment type cards -->
+    <div class="appt-type-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem;text-align:left;">
+      <div style="background:var(--white);border-radius:3px;padding:1.6rem 1.4rem;border-top:3px solid var(--pine);box-shadow:0 4px 20px rgba(26,58,42,0.07);">
+        <div style="font-size:1.8rem;margin-bottom:0.8rem;">&#127968;</div>
+        <div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.4rem;">New Patients</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--pine);margin-bottom:0.5rem;font-weight:400;">In-Person Visit</div>
+        <p style="font-size:0.83rem;color:var(--stone);line-height:1.7;">First-time patients are seen in our Pocatello office. We look forward to meeting you and getting to know your full health picture.</p>
+      </div>
+      <div style="background:var(--white);border-radius:3px;padding:1.6rem 1.4rem;border-top:3px solid var(--sage);box-shadow:0 4px 20px rgba(26,58,42,0.07);">
+        <div style="font-size:1.8rem;margin-bottom:0.8rem;">&#128249;</div>
+        <div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.4rem;">Established Patients</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--pine);margin-bottom:0.5rem;font-weight:400;">Video Chat</div>
+        <p style="font-size:0.83rem;color:var(--stone);line-height:1.7;">Convenient telehealth video visits available from the comfort of your home — ideal for follow-ups, medication reviews, and routine care.</p>
+      </div>
+      <div style="background:var(--white);border-radius:3px;padding:1.6rem 1.4rem;border-top:3px solid var(--gold);box-shadow:0 4px 20px rgba(26,58,42,0.07);">
+        <div style="font-size:1.8rem;margin-bottom:0.8rem;">&#128222;</div>
+        <div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.4rem;">Established Patients</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--pine);margin-bottom:0.5rem;font-weight:400;">Phone Call</div>
+        <p style="font-size:0.83rem;color:var(--stone);line-height:1.7;">Quick and easy phone appointments for established patients — great for prescription refills, test results, and simple questions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick info bar -->
+  <div class="reveal" style="max-width:860px;margin:0 auto 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+    <div class="cal-card">
+      <div class="ci">&#128336;</div>
+      <div class="cl">Hours</div>
+      <div class="cv">Mon &ndash; Thu<br>9:00 AM &ndash; 4:00 PM</div>
+    </div>
+    <div class="cal-card">
+      <div class="ci">&#128222;</div>
+      <div class="cl">Phone &amp; Fax</div>
+      <div class="cv">&#128222; (208) 423-8132<br>&#128224; (208) 203-6420</div>
+    </div>
+    <div class="cal-card">
+      <div class="ci">&#9993;&#65039;</div>
+      <div class="cl">Email</div>
+      <div class="cv">info@rothfamilymed.com</div>
+    </div>
+  </div>
+
+  <!-- Live Calendly embed -->
+  <div class="reveal" style="max-width:860px;margin:0 auto;background:var(--white);border-radius:4px;overflow:hidden;box-shadow:0 20px 60px rgba(26,58,42,0.1);">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
+    <div class="calendly-inline-widget"
+         data-url="https://calendly.com/kyro5411/30min?hide_gdpr_banner=1&primary_color=1a3a2a"
+         style="min-width:320px;height:700px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <h3>Ready to Take the First Step<br><em>Toward Better Health?</em></h3>
+  <a href="#schedule" class="btn-white">Book Your Appointment Today</a>
+</div>
+
+<!-- LOCATION / CONTACT -->
+<section class="location" id="contact">
+  <div class="location-info">
+    <p class="section-label">Find Us</p>
+    <h2 class="section-title">Visit Us in<br><em>Pocatello, Idaho</em></h2>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-icon">&#128205;</div>
+        <div>
+          <h5>Address</h5>
+          <p>Pocatello, Idaho 83201<br>Bannock County</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#128222;</div>
+        <div>
+          <h5>Phone &amp; Fax</h5>
+          <p>&#128222; (208) 423-8132<br>&#128224; Fax: (208) 203-6420</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#128336;</div>
+        <div>
+          <h5>Office Hours</h5>
+          <p>Monday &ndash; Thursday: 9:00 AM &ndash; 4:00 PM<br>Closed Fridays</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#128231;</div>
+        <div>
+          <h5>Email / Patient Portal</h5>
+          <p>info@rothfamilymed.com<br>Secure messaging through patient portal</p>
+        </div>
+      </div>
+    </div>
+    <a href="tel:2084238132" class="btn-primary">Call to Schedule</a>
+  </div>
+  <div class="location-map">
+    <div class="map-pin">
+      <div class="map-pin-dot"></div>
+      <div class="map-pin-label">Roth Family Medicine<br>Pocatello, Idaho</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">Roth Family Medicine<br><span>&amp; Mental Health</span></div>
+      <p>Comprehensive, compassionate care for every member of your family &mdash; rooted in the heart of Pocatello, Idaho.</p>
+    </div>
+    <div class="footer-col">
+      <h6>Services</h6>
+      <ul>
+        <li><a href="#services">Family Medicine</a></li>
+        <li><a href="#services">Mental Health</a></li>
+        <li><a href="#services">Weight Loss</a></li>
+        <li><a href="#services">Hormone Therapy</a></li>
+        <li><a href="#services">Functional Medicine</a></li>
+        <li><a href="#services">IV Therapy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6>Practice</h6>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#approach">Our Approach</a></li>
+        <li><a href="#schedule">Book Appointment</a></li>
+        <li><a href="#contact">New Patients</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6>Contact</h6>
+      <ul>
+        <li>Pocatello, Idaho 83201</li>
+        <li>&#128222; (208) 423-8132</li>
+        <li>&#128224; Fax: (208) 203-6420</li>
+        <li>Mon&ndash;Thu: 9am&ndash;4pm</li>
+        <li><a href="mailto:info@rothfamilymed.com" style="color:rgba(255,255,255,0.5)">info@rothfamilymed.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Roth Family Medicine &amp; Mental Health. All rights reserved. | Pocatello, Idaho</p>
+    <p>Privacy Policy &middot; HIPAA Notice</p>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  const reveals = document.
