@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roth Family Medicine &amp; Mental Health | Pocatello, Idaho</title>
+  <meta name="description" content="Comprehensive family medicine, mental health, weight loss, hormone therapy and functional medicine in Pocatello, Idaho. Call (208) 423-8132."/>
+  <meta name="keywords" content="family medicine Pocatello, primary care Idaho, mental health Pocatello, hormone therapy, weight loss doctor, GLP-1 semaglutide, TRT testosterone, functional medicine, IV therapy Pocatello"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
+  <meta name="referrer" content="no-referrer-when-downgrade"/>
+  <style>
+    :root {
+      --pine:  #1a3a2a;
+      --sage:  #4a7c59;
+      --mist:  #e8efe9;
+      --stone: #8a9b8e;
+      --gold:  #b8933a;
+      --cream: #f7f4ee;
+      --dark:  #141c17;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; padding-bottom: 60px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(26,58,42,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--cream); letter-spacing: 0.02em; line-height: 1.3; text-decoration: none; }
+    .nav-logo span { color: var(--gold); font-style: italic; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(232,239,233,0.8); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold) !important; color: var(--white) !important; padding: 0.6rem 1.3rem !important; border-radius: 2px; font-weight: 500 !important; }
+    .nav-cta:hover { background: #a07d2e !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 0; }
+    .hamburger span { width: 24px; height: 2px; background: var(--cream); display: block; }
+    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--pine); padding: 2rem; z-index: 199; flex-direction: column; gap: 1.2rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--cream); text-decoration: none; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+    /* BUTTONS */
+    .btn-primary { background: var(--gold); color: var(--white); padding: 1rem 2.2rem; border: none; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 0.3s, transform 0.2s; display: inline-block; }
+    .btn-primary:hover { background: #a07d2e; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--white); padding: 1rem 2.2rem; border: 1px solid rgba(255,255,255,0.5); border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.3s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    /* SHARED */
+    section { padding: 7rem 4rem; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.8rem; display: block; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.15; color: var(--pine); margin-bottom: 1.5rem; }
+    .section-title em { font-style: italic; color: var(--sage); }
+
+    /* HERO */
+    .hero { height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(160deg, rgba(26,58,42,0.72) 0%, rgba(20,28,23,0.55) 50%, rgba(26,58,42,0.3) 100%),
+        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+      animation: zoomSlow 22s ease-in-out infinite alternate;
+    }
+    @keyframes zoomSlow { from{transform:scale(1)} to{transform:scale(1.06)} }
+    .mountain-svg { position: absolute; bottom: 0; left: 0; right: 0; width: 100%; pointer-events: none; }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; padding: 0 4rem; animation: fadeUp 1.2s ease both; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 1.4rem; }
+    .hero p { font-size: 1.05rem; color: rgba(232,239,233,0.85); line-height: 1.8; max-width: 520px; margin-bottom: 2.4rem; font-weight: 300; }
+
+    /* PHOTO STRIP */
+    .photo-strip { display: grid; grid-template-columns: repeat(5,1fr); height: 340px; overflow: hidden; }
+    .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; filter: saturate(0.85); display: block; }
+
+    /* SCHEDULING (Calendly) */
+    .scheduling { background: var(--mist); padding: 4rem 4rem 7rem; }
+    .calendly-wrap { max-width: 900px; margin: 0 auto; background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: 0 20px 60px rgba(26,58,42,0.1); }
+
+    /* MOBILE CTA BAR */
+    .mobile-cta-bar { position: fixed; bottom: 0; left: 0; right: 0; display: none; z-index: 300; }
+    .mobile-cta-bar a { flex: 1; text-align: center; padding: 1rem; color: var(--white); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+    .cta-call { background: #28a745; }
+    .cta-text { background: #1a7abf; }
+    .cta-book { background: var(--gold); }
+    .float-call { position: fixed; bottom: 2rem; right: 2rem; background: #28a745; color: var(--white); padding: 0.9rem 1.4rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 20px rgba(40,167,69,0.4); z-index: 299; }
+
+    /* REVEAL EFFECT */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-cta-bar { display: flex; }
+      .float-call { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Roth Family Medicine<br><span>&amp; Mental Health</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#schedule" class="nav-cta">Book Appointment</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#schedule" onclick="toggleMenu()">Schedule</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="tel:12084238132" style="color:var(--gold)">Call (208) 423-8132</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>Rooted in the Mountains,<br><em>Dedicated to Your Health</em></h1>
+    <p>Comprehensive family medicine and mental health care for the Pocatello community.</p>
+    <div class="hero-btns">
+      <a href="#schedule" class="btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<div class="photo-strip">
+  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=500&q=80" alt="Family" loading="lazy"/></div>
+  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=500&q=80" alt="Mountains" loading="lazy"/></div>
+  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80" alt="Care" loading="lazy"/></div>
+  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=500&q=80" alt="Hiking" loading="lazy"/></div>
+  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80" alt="Idaho" loading="lazy"/></div>
+</div>
+
+<section class="scheduling" id="schedule">
+  <span class="section-label">Appointments</span>
+  <h2 class="section-title" style="text-align:center">Ready to Begin?</h2>
+  <div class="calendly-wrap">
+    <div class="calendly-inline-widget" data-url="https://calendly.com/rothfamilymedicine" style="min-width:320px;height:700px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+</section>
+
+<a href="tel:12084238132" class="float-call">Call (208) 423-8132</a>
+
+<div class="mobile-cta-bar">
+  <a href="tel:12084238132" class="cta-call">Call</a>
+  <a href="sms:12084238132" class="cta-text">Text</a>
+  <a href="#schedule" class="cta-book">Book</a>
+</div>
+
+<script>
+  // Mobile Menu Toggle
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Scroll Reveal Logic
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
