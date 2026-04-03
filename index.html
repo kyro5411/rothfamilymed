@@ -4,11 +4,9 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Roth Family Medicine &amp; Mental Health | Pocatello, Idaho</title>
-  <meta name="description" content="Family medicine, mental health, weight loss (GLP-1/Semaglutide), hormone therapy (TRT/BHRT), and functional medicine in Pocatello, Idaho. (208) 423-8132."/>
-  <meta name="keywords" content="family medicine Pocatello, weight loss Idaho, semaglutide Pocatello, tirzepatide Idaho, TRT testosterone Pocatello, hormone therapy Idaho, mental health Pocatello, GLP-1, functional medicine, IV therapy Pocatello, medicaid medicare blue cross"/>
+  <meta name="description" content="Family medicine, mental health, weight loss (GLP-1/Semaglutide), hormone therapy (TRT/BHRT) and functional medicine in Pocatello, Idaho. Same-day appointments. Call (208) 423-8132."/>
+  <meta name="keywords" content="family medicine Pocatello, weight loss Idaho, semaglutide Pocatello, tirzepatide Idaho, TRT testosterone Pocatello, hormone therapy Idaho, mental health Pocatello, GLP-1, functional medicine, IV therapy Pocatello"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
-  <script src="https://js-na2.hsforms.net/forms/embed/245729277.js" defer></script>
   <style>
     :root{--pine:#1a3a2a;--sage:#4a7c59;--mist:#e8efe9;--stone:#8a9b8e;--gold:#b8933a;--cream:#f7f4ee;--dark:#141c17;--white:#ffffff;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -93,6 +91,7 @@
     .ad-content-light{background:var(--mist);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;}
     .pill-row{display:flex;flex-wrap:wrap;gap:0.6rem;margin:1.4rem 0 2rem;}
     .pill-gold{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.35rem 0.85rem;border-radius:20px;background:rgba(184,147,58,0.15);border:1px solid rgba(184,147,58,0.45);color:#c9a84c;}
+    .pill-pine{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.35rem 0.85rem;border-radius:20px;background:rgba(26,58,42,0.1);border:1px solid rgba(26,58,42,0.25);color:var(--pine);}
     .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem;margin-top:1.8rem;}
     .proof-dark{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);padding:1.1rem;border-radius:3px;text-align:center;}
     .proof-dark .pn{font-family:"Cormorant Garamond",serif;font-size:1.9rem;color:var(--gold);line-height:1;}
@@ -120,9 +119,18 @@
     .pillar p{font-size:0.83rem;color:var(--stone);line-height:1.7;}
     .welcome{background:var(--cream);display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start;}
     .welcome-imgs{display:flex;flex-direction:column;gap:1.2rem;}
+    .welcome-img-main{width:100%;height:380px;object-fit:cover;object-position:top;border-radius:3px;display:block;}
     .welcome-img-secondary{width:100%;height:auto;object-fit:contain;border-radius:3px;display:block;}
     .welcome-quote{background:var(--pine);color:var(--cream);padding:1.8rem;border-radius:3px;font-family:"Cormorant Garamond",serif;font-size:1.05rem;font-style:italic;line-height:1.6;}
     .welcome-quote::before{content:'\201C';font-size:3.5rem;line-height:0.5;color:var(--gold);display:block;margin-bottom:0.8rem;}
+    .appt-section{background:var(--mist);padding:5rem 4rem 0;}
+    .appt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+    .appt-card{background:var(--white);border-radius:3px;padding:2rem 1.6rem;border-top:3px solid var(--pine);}
+    .appt-card:nth-child(2){border-top-color:var(--sage);}
+    .appt-card:nth-child(3){border-top-color:var(--gold);}
+    .appt-card .at{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.4rem;}
+    .appt-card h4{font-family:"Cormorant Garamond",serif;font-size:1.2rem;color:var(--pine);margin-bottom:0.5rem;}
+    .appt-card p{font-size:0.84rem;color:var(--stone);line-height:1.7;}
     .testimonials{background:var(--white);text-align:center;}
     .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1100px;margin:0 auto;}
     .testimonial{background:var(--mist);padding:2.2rem;border-radius:3px;text-align:left;transition:box-shadow 0.3s;}
@@ -133,40 +141,30 @@
     .author-initials{width:38px;height:38px;border-radius:50%;background:var(--pine);color:var(--cream);display:flex;align-items:center;justify-content:center;font-family:"Cormorant Garamond",serif;font-size:1.1rem;flex-shrink:0;}
     .author-name{font-size:0.8rem;font-weight:500;color:var(--pine);}
     .stars{color:var(--gold);font-size:0.85rem;margin-top:0.1rem;letter-spacing:2px;}
-    .appt-section{background:var(--mist);padding:5rem 4rem 0;}
-    .appt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
-    .appt-card{background:var(--white);border-radius:3px;padding:2rem 1.6rem;border-top:3px solid var(--pine);}
-    .appt-card:nth-child(2){border-top-color:var(--sage);}
-    .appt-card:nth-child(3){border-top-color:var(--gold);}
-    .appt-card .at{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.4rem;}
-    .appt-card h4{font-family:"Cormorant Garamond",serif;font-size:1.2rem;color:var(--pine);margin-bottom:0.5rem;}
-    .appt-card p{font-size:0.84rem;color:var(--stone);line-height:1.7;}
     .scheduling{background:var(--mist);padding:4rem 4rem 7rem;}
     .cal-info-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:860px;margin:0 auto 2rem;}
     .cal-info-card{background:var(--white);padding:1.4rem 1rem;border-radius:3px;text-align:center;}
     .cal-info-card .cl{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pine);font-weight:500;}
     .cal-info-card .cv{font-size:0.84rem;color:var(--stone);margin-top:0.4rem;line-height:1.6;}
-    .booking-tabs-wrap{max-width:900px;margin:0 auto;}
-    .booking-tabs{display:flex;border-radius:3px 3px 0 0;overflow:hidden;border:1px solid rgba(26,58,42,0.15);border-bottom:none;}
-    .booking-tab{flex:1;padding:1rem 1.5rem;background:var(--white);border:none;font-family:"DM Sans",sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);cursor:pointer;transition:background 0.25s,color 0.25s;border-right:1px solid rgba(26,58,42,0.1);}
-    .booking-tab:last-child{border-right:none;}
-    .booking-tab.active{background:var(--pine);color:var(--cream);}
-    .booking-tab:hover:not(.active){background:var(--mist);color:var(--pine);}
-    .booking-tab-content{display:none;}
-    .booking-tab-content.active{display:block;}
-    .koalendar-wrap{background:var(--white);border-radius:0 0 4px 4px;overflow:hidden;box-shadow:0 20px 60px rgba(26,58,42,0.1);}
-    .hs-form-wrap{background:var(--white);padding:3rem;border-radius:0 0 4px 4px;box-shadow:0 20px 60px rgba(26,58,42,0.1);}
+    .calendly-wrap{max-width:900px;margin:0 auto;background:var(--white);border-radius:4px;overflow:hidden;box-shadow:0 20px 60px rgba(26,58,42,0.1);}
     .cta-strip{background:var(--gold);padding:3.2rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
     .cta-strip h3{font-family:"Cormorant Garamond",serif;font-size:2.1rem;color:var(--white);font-weight:300;}
     .cta-strip h3 em{font-style:italic;}
-    .insurance-band{background:var(--white);padding:4rem;border-top:1px solid var(--mist);}
-    .insurance-inner{max-width:900px;margin:0 auto;text-align:center;}
-    .insurance-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin:1.5rem 0;}
-    .ins-pill{background:var(--mist);border:1px solid rgba(26,58,42,0.12);color:var(--pine);font-family:"Cormorant Garamond",serif;font-size:1.1rem;padding:0.7rem 1.8rem;border-radius:3px;}
-    .insurance-note{font-size:0.85rem;color:var(--stone);line-height:1.7;}
-    .insurance-note a{color:var(--sage);font-weight:500;text-decoration:none;}
+    .location{background:var(--pine);display:grid;grid-template-columns:1fr 1fr;padding:0;}
+    .location-info{padding:6rem 4rem;}
+    .location-info .section-label{color:var(--gold);}
+    .location-info .section-title{color:var(--cream);margin-bottom:2rem;}
+    .contact-items{display:flex;flex-direction:column;gap:1.4rem;margin-bottom:2.2rem;}
+    .contact-item{display:flex;gap:1rem;align-items:flex-start;}
+    .contact-line{width:3px;flex-shrink:0;background:var(--gold);border-radius:2px;min-height:40px;align-self:stretch;}
+    .contact-item h5{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.25rem;}
+    .contact-item p{font-size:0.88rem;color:rgba(232,239,233,0.8);line-height:1.6;}
+    .contact-item a{color:rgba(232,239,233,0.8);text-decoration:none;}
+    .contact-item a:hover{color:var(--gold);}
+    .map-wrap{position:relative;min-height:500px;}
+    .map-wrap iframe{width:100%;height:100%;border:0;display:block;}
     footer{background:var(--dark);padding:4rem 4rem 2rem;}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3rem;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
     .footer-logo{font-family:"Cormorant Garamond",serif;font-size:1.15rem;color:var(--cream);line-height:1.3;display:block;margin-bottom:0.8rem;}
     .footer-logo span{color:var(--gold);font-style:italic;}
     .footer-brand p{font-size:0.83rem;color:rgba(255,255,255,0.4);line-height:1.7;}
@@ -207,6 +205,9 @@
       .scheduling{padding:3rem 2rem 5rem;}
       .cal-info-strip{grid-template-columns:1fr;}
       .cta-strip{flex-direction:column;text-align:center;padding:3rem 2rem;}
+      .location{grid-template-columns:1fr;}
+      .location-info{padding:5rem 2rem;}
+      .map-wrap{min-height:300px;}
       .footer-grid{grid-template-columns:1fr 1fr;}
       footer{padding:3rem 2rem 2rem;}
       .float-call{display:none;}
@@ -214,46 +215,26 @@
       .trust-bar{padding:1.2rem 2rem;}
       .nature-banner-content{padding:0 2rem;}
       .proof-grid{grid-template-columns:1fr 1fr;}
-      .insurance-band{padding:3rem 2rem;}
-      .hs-form-wrap{padding:1.5rem;}
     }
     @media(max-width:640px){
       .services-grid{grid-template-columns:1fr;}
       .about-stats{grid-template-columns:1fr 1fr;}
       .footer-grid{grid-template-columns:1fr;}
-      .hero-content{padding:120px 1.5rem 2rem;}
+      .hero-content{padding:80px 1.5rem 2rem;}
       .proof-grid{grid-template-columns:1fr;}
-      .ins-pill{font-size:0.95rem;padding:0.6rem 1.2rem;}
-      .booking-tab{font-size:0.72rem;padding:0.85rem 0.8rem;letter-spacing:0.06em;}
-      .trust-bar{display:none;}
     }
+
     @media(max-width:480px){
       .hero h1{font-size:2.2rem;line-height:1.12;}
       .hero p{font-size:0.9rem;}
       .hero-badge{font-size:0.62rem;letter-spacing:0.12em;}
       .hero-btns{flex-direction:column;}
       .hero-btns a{text-align:center;}
+      .trust-bar{display:none;}
     }
-
-    /* Announcement banner */
-    .announcement-bar{background:var(--gold);color:var(--white);text-align:center;padding:0.7rem 2rem;font-size:0.85rem;line-height:1.5;position:fixed;top:0;left:0;right:0;z-index:301;}
-    .announcement-bar p{margin:0;}
-    .announcement-bar strong{font-weight:600;}
-    .announcement-bar a{color:var(--white);font-weight:600;text-decoration:underline;margin-left:0.5rem;}
-    .announcement-bar a:hover{opacity:0.85;}
-    /* Push nav below the announcement bar */
-    nav{top:40px!important;}
-    .mobile-menu{top:104px!important;}
-
   </style>
 </head>
 <body>
-
-
-<!-- ANNOUNCEMENT BANNER -->
-<div class="announcement-bar">
-  <p>&#127881; We are excited to start seeing patients at our new location and online &mdash; <strong>opening June 1, 2026!</strong> &nbsp;<a href="#schedule">Book Now</a></p>
-</div>
 
 <nav>
   <a href="#" class="nav-logo">Roth Family Medicine<br><span>&amp; Mental Health</span></a>
@@ -263,9 +244,12 @@
     <li><a href="#weightloss">Weight Loss</a></li>
     <li><a href="#trt">TRT</a></li>
     <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#contact">Contact</a></li>
     <li><a href="#schedule" class="nav-cta">Book Now</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="toggleMenu()">About</a>
@@ -273,6 +257,7 @@
   <a href="#weightloss" onclick="toggleMenu()">Weight Loss</a>
   <a href="#trt" onclick="toggleMenu()">TRT</a>
   <a href="#schedule" onclick="toggleMenu()">Schedule</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="tel:12084238132" onclick="toggleMenu()" style="color:var(--gold)">Call (208) 423-8132</a>
 </div>
 
@@ -303,6 +288,7 @@
   <div class="trust-item">Mon&ndash;Thu 9am&ndash;4pm</div>
   <div class="trust-item">(208) 423-8132</div>
 </div>
+
 
 <section class="about" id="about">
   <div class="about-images reveal">
@@ -341,6 +327,7 @@
     <a href="#weightloss" class="service-card reveal"><h3>Weight Loss Medicine</h3><p>GLP-1 medications (Semaglutide, Tirzepatide), nutritional counseling, and medically supervised sustainable weight management.</p><span class="service-tag">GLP-1 Available</span></a>
     <a href="#trt" class="service-card reveal"><h3>Hormone Therapy</h3><p>Bioidentical hormone replacement (BHRT) for men and women. Testosterone optimization, menopause management, thyroid and adrenal health.</p><span class="service-tag">BHRT &middot; HRT &middot; TRT</span></a>
     <a href="#schedule" class="service-card reveal"><h3>Functional Medicine</h3><p>Root-cause medicine beyond symptoms. Advanced lab testing, gut health, inflammation, nutrient optimization, and personalized healing protocols.</p><span class="service-tag">Root-Cause Focus</span></a>
+    <a href="#schedule" class="service-card reveal"><h3>IV Therapy &amp; Infusions</h3><p>Customized IV nutrient therapy for energy, immunity, hydration, athletic recovery, and NAD+ infusions for cellular rejuvenation.</p><span class="service-tag">Wellness Infusions</span></a>
     <a href="#schedule" class="service-card reveal"><h3>Pediatric &amp; Well-Child</h3><p>Newborn care, immunizations, developmental screenings, ADHD evaluation, and adolescent medicine in a family-friendly environment.</p><span class="service-tag">Newborn to Teen</span></a>
     <a href="#schedule" class="service-card reveal"><h3>Chronic Disease Management</h3><p>Ongoing care for diabetes, hypertension, heart disease, asthma, autoimmune conditions, and metabolic syndrome.</p><span class="service-tag">Long-Term Wellness</span></a>
     <a href="#schedule" class="service-card reveal"><h3>Preventive Wellness</h3><p>Annual exams, cancer screenings, laboratory testing, cardiovascular risk assessment, and lifestyle medicine to keep you thriving.</p><span class="service-tag">Stay Ahead of Disease</span></a>
@@ -349,12 +336,20 @@
 
 <div id="weightloss">
   <div class="ad-split">
-    <div class="ad-img"><img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=900&q=80" alt="Healthy active lifestyle" loading="lazy"/></div>
+    <div class="ad-img">
+      <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=900&q=80" alt="Medical weight loss" loading="lazy"/>
+    </div>
     <div class="ad-content-dark reveal">
       <span class="section-label">Medical Weight Loss &mdash; Pocatello, Idaho</span>
       <h2 class="section-title">Lose Weight <em>Safely &amp; Effectively</em></h2>
       <p class="section-body">Provider-guided GLP-1 programs using Semaglutide and Tirzepatide &mdash; clinically proven, medically supervised, and tailored to your goals.</p>
-      <div class="pill-row"><span class="pill-gold">Semaglutide</span><span class="pill-gold">Tirzepatide</span><span class="pill-gold">GLP-1 Injections</span><span class="pill-gold">Nutrition Coaching</span><span class="pill-gold">Monthly Follow-Ups</span></div>
+      <div class="pill-row">
+        <span class="pill-gold">Semaglutide</span>
+        <span class="pill-gold">Tirzepatide</span>
+        <span class="pill-gold">GLP-1 Injections</span>
+        <span class="pill-gold">Nutrition Coaching</span>
+        <span class="pill-gold">Monthly Follow-Ups</span>
+      </div>
       <div class="proof-grid">
         <div class="proof-dark"><div class="pn">20+</div><div class="pl">Avg lbs lost in 3 months</div></div>
         <div class="proof-dark"><div class="pn">FDA</div><div class="pl">Approved medications</div></div>
@@ -390,7 +385,9 @@
         <div class="proof-light"><div class="pn">+Strength</div><div class="pl">Body composition</div></div>
       </div>
     </div>
-    <div class="ad-img"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=900&q=80" alt="Active outdoor lifestyle" loading="lazy"/></div>
+    <div class="ad-img">
+      <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=900&q=80" alt="Active healthy lifestyle" loading="lazy"/>
+    </div>
   </div>
 </div>
 
@@ -457,26 +454,12 @@
 <div class="scheduling">
   <p class="section-body" style="text-align:center;max-width:580px;margin:0 auto 2rem">Select a time that works for you. Prefer to call? <a href="tel:12084238132" style="color:var(--sage);font-weight:500">(208) 423-8132</a></p>
   <div class="cal-info-strip">
-    <div class="cal-info-card"><div class="cl">Address</div><div class="cv">444 Hospital Way, Suite 422<br>Pocatello, Idaho 83201</div></div>
-    <div class="cal-info-card"><div class="cl">Phone &amp; Fax</div><div class="cv">(208) 423-8132 &nbsp;|&nbsp; Fax: (208) 203-6420</div></div>
     <div class="cal-info-card"><div class="cl">Hours</div><div class="cv">Mon &ndash; Thu &nbsp;|&nbsp; 9:00 AM &ndash; 4:00 PM<br>Closed Fridays</div></div>
+    <div class="cal-info-card"><div class="cl">Phone &amp; Fax</div><div class="cv">(208) 423-8132 &nbsp;|&nbsp; Fax: (208) 203-6420</div></div>
+    <div class="cal-info-card"><div class="cl">Email</div><div class="cv"><a href="mailto:info@rothfamilymed.com" style="color:inherit">info@rothfamilymed.com</a></div></div>
   </div>
-  <div class="booking-tabs-wrap">
-    <div class="booking-tabs">
-      <button class="booking-tab active" onclick="switchTab(event,'tab-koalendar')">Schedule Online</button>
-      <button class="booking-tab" onclick="switchTab(event,'tab-hubspot')">Request Appointment</button>
-    </div>
-    <div id="tab-koalendar" class="booking-tab-content active">
-      <div class="koalendar-wrap">
-        <iframe src="https://koalendar.com/e/RothFamilyMed?embed=true" width="100%" height="700" frameborder="0" scrolling="yes" title="Book an Appointment" allow="payment" style="border:none;"></iframe>
-      </div>
-    </div>
-    <div id="tab-hubspot" class="booking-tab-content">
-      <div class="hs-form-wrap">
-        <p style="text-align:center;font-size:0.9rem;color:var(--stone);margin-bottom:1.5rem">Fill out the form below and we will contact you to confirm your appointment.</p>
-        <div class="hs-form-frame" data-region="na2" data-form-id="6c22e068-a497-4b9e-9ce9-7249908d8312" data-portal-id="245729277"></div>
-      </div>
-    </div>
+  <div class="calendly-wrap">
+    <iframe src="https://koalendar.com/e/RothFamilyMed?embed=true" width="100%" height="700" frameborder="0" scrolling="yes" title="Book an Appointment - Roth Family Medicine" allow="payment" style="border:none;border-radius:4px;"></iframe>
   </div>
 </div>
 
@@ -485,16 +468,23 @@
   <a href="#schedule" class="btn-white">Book Your Appointment Today</a>
 </div>
 
-<div class="insurance-band">
-  <div class="insurance-inner">
-    <span class="section-label" style="display:block">Insurance Accepted</span>
-    <div class="insurance-logos">
-      <div class="ins-pill">Medicaid</div>
-      <div class="ins-pill">Medicare</div>
-      <div class="ins-pill">Blue Cross / Blue Shield</div>
-      <div class="ins-pill">Most Major Insurances</div>
+<div class="location" id="contact">
+  <div class="location-info">
+    <span class="section-label">Find Us</span>
+    <h2 class="section-title">Visit Us in<br><em>Pocatello, Idaho</em></h2>
+    <div class="contact-items">
+      <div class="contact-item"><div class="contact-line"></div><div><h5>Address</h5><p>Pocatello, Idaho 83201<br>Bannock County</p></div></div>
+      <div class="contact-item"><div class="contact-line"></div><div><h5>Phone &amp; Fax</h5><p><a href="tel:12084238132">(208) 423-8132</a><br>Fax: (208) 203-6420</p></div></div>
+      <div class="contact-item"><div class="contact-line"></div><div><h5>Office Hours</h5><p>Monday &ndash; Thursday: 9:00 AM &ndash; 4:00 PM<br>Closed Fridays</p></div></div>
+      <div class="contact-item"><div class="contact-line"></div><div><h5>Email &amp; Text</h5><p><a href="mailto:info@rothfamilymed.com" style="color:inherit">info@rothfamilymed.com</a><br><a href="sms:12084238132">Text us anytime</a></p></div></div>
     </div>
-    <p class="insurance-note">Not sure if we accept your plan? <a href="tel:12084238132">Call us at (208) 423-8132</a> and we&rsquo;ll verify your coverage.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="tel:12084238132" class="btn-primary">Call to Schedule</a>
+      <a href="sms:12084238132" class="btn-outline" style="border-color:rgba(255,255,255,0.4);color:var(--cream)">Send a Text</a>
+    </div>
+  </div>
+  <div class="map-wrap">
+    <iframe src="https://maps.google.com/maps?q=Pocatello+Idaho&t=&z=13&ie=UTF8&iwloc=&output=embed" title="Pocatello Idaho" loading="lazy" allowfullscreen></iframe>
   </div>
 </div>
 
@@ -502,7 +492,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <span class="footer-logo">Roth Family Medicine<br><span>&amp; Mental Health</span></span>
-      <p>444 Hospital Way, Suite 422<br>Pocatello, Idaho 83201<br>Comprehensive, compassionate care rooted in the heart of Pocatello.</p>
+      <p>Comprehensive, compassionate care for every member of your family &mdash; rooted in the heart of Pocatello, Idaho.</p>
     </div>
     <div class="footer-col">
       <h6>Services</h6>
@@ -512,6 +502,7 @@
         <li><a href="#weightloss">Weight Loss (GLP-1)</a></li>
         <li><a href="#trt">Hormone Therapy / TRT</a></li>
         <li><a href="#services">Functional Medicine</a></li>
+        <li><a href="#services">IV Therapy</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -520,28 +511,17 @@
         <li><a href="#about">About Us</a></li>
         <li><a href="#approach">Our Approach</a></li>
         <li><a href="#schedule">Book Appointment</a></li>
-        <li><a href="#schedule">New Patients</a></li>
+        <li><a href="#contact">New Patients</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h6>Contact</h6>
       <ul>
-        <li>444 Hospital Way, Suite 422</li>
         <li>Pocatello, Idaho 83201</li>
         <li><a href="tel:12084238132">(208) 423-8132</a></li>
         <li>Fax: (208) 203-6420</li>
         <li>Mon&ndash;Thu: 9am&ndash;4pm</li>
-        <li><a href="/cdn-cgi/l/email-protection#6f060109002f1d001b07090e02060316020a0b410c0002"><span class="__cf_email__" data-cfemail="f59c9b939ab5879a819d9394989c998c989091db969a98">[email&#160;protected]</span></a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h6>Insurance</h6>
-      <ul>
-        <li>Medicaid</li>
-        <li>Medicare</li>
-        <li>Blue Cross / Blue Shield</li>
-        <li>Most Major Insurances</li>
-        <li style="font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:0.3rem">Call to verify your plan</li>
+        <li><a href="mailto:info@rothfamilymed.com" style="color:inherit">info@rothfamilymed.com</a></li>
       </ul>
     </div>
   </div>
@@ -558,17 +538,13 @@
   <a href="#schedule" class="cta-book">Book</a>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function toggleMenu(){document.getElementById("mobileMenu").classList.toggle("open");}
-  document.addEventListener("click",function(e){var m=document.getElementById("mobileMenu"),b=document.querySelector(".hamburger");if(m&&m.classList.contains("open")&&!m.contains(e.target)&&!b.contains(e.target)){m.classList.remove("open");}});
-  function switchTab(e,tabId){document.querySelectorAll(".booking-tab").forEach(function(t){t.classList.remove("active");});document.querySelectorAll(".booking-tab-content").forEach(function(c){c.classList.remove("active");});e.target.classList.add("active");document.getElementById(tabId).classList.add("active");}
-  var reveals=document.querySelectorAll(".reveal");
-  var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry,i){if(entry.isIntersecting){setTimeout(function(){entry.target.classList.add("visible");},i*80);observer.
-  function switchTab(e,tabId){document.querySelectorAll(".booking-tab").forEach(function(t){t.classList.remove("active");});document.querySelectorAll(".booking-tab-content").forEach(function(c){c.classList.remove("active");});e.target.classList.add("active");document.getElementById(tabId).classList.add("active");}
-  var reveals=document.querySelectorAll(".reveal");
-  var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry,i){if(entry.isIntersecting){setTimeout(function(){entry.target.classList.add("visible");},i*80);observer.unobserve(entry.target);}});},{threshold:0.1});
-  reveals.forEach(function(el){observer.observe(el);});
-  document.querySelectorAll(".service-card.reveal").forEach(function(card,i){card.style.transitionDelay=(i*55)+"ms";});
+  document.addEventListener("click",function(e){var m=document.getElementById("mobileMenu"),b=document.querySelector(".hamburger");if(m.classList.contains("open")&&!m.contains(e.target)&&!b.contains(e.target)){m.classList.remove("open");}});
+  const reveals=document.querySelectorAll(".reveal");
+  const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add("visible"),i*80);observer.unobserve(entry.target);}});},{threshold:0.1});
+  reveals.forEach(el=>observer.observe(el));
+  document.querySelectorAll(".service-card.reveal").forEach((card,i)=>{card.style.transitionDelay=(i*55)+"ms";});
 </script>
 </body>
 </html>
