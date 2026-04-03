@@ -221,7 +221,7 @@
       .services-grid{grid-template-columns:1fr;}
       .about-stats{grid-template-columns:1fr 1fr;}
       .footer-grid{grid-template-columns:1fr;}
-      .hero-content{padding:80px 1.5rem 2rem;}
+      .hero-content{padding:120px 1.5rem 2rem;}
       .proof-grid{grid-template-columns:1fr;}
       .ins-pill{font-size:0.95rem;padding:0.6rem 1.2rem;}
       .booking-tab{font-size:0.72rem;padding:0.85rem 0.8rem;letter-spacing:0.06em;}
@@ -234,9 +234,26 @@
       .hero-btns{flex-direction:column;}
       .hero-btns a{text-align:center;}
     }
+
+    /* Announcement banner */
+    .announcement-bar{background:var(--gold);color:var(--white);text-align:center;padding:0.7rem 2rem;font-size:0.85rem;line-height:1.5;position:fixed;top:0;left:0;right:0;z-index:301;}
+    .announcement-bar p{margin:0;}
+    .announcement-bar strong{font-weight:600;}
+    .announcement-bar a{color:var(--white);font-weight:600;text-decoration:underline;margin-left:0.5rem;}
+    .announcement-bar a:hover{opacity:0.85;}
+    /* Push nav below the announcement bar */
+    nav{top:40px!important;}
+    .mobile-menu{top:104px!important;}
+
   </style>
 </head>
 <body>
+
+
+<!-- ANNOUNCEMENT BANNER -->
+<div class="announcement-bar">
+  <p>&#127881; We are excited to start seeing patients at our new location and online &mdash; <strong>opening June 1, 2026!</strong> &nbsp;<a href="#schedule">Book Now</a></p>
+</div>
 
 <nav>
   <a href="#" class="nav-logo">Roth Family Medicine<br><span>&amp; Mental Health</span></a>
@@ -324,7 +341,6 @@
     <a href="#weightloss" class="service-card reveal"><h3>Weight Loss Medicine</h3><p>GLP-1 medications (Semaglutide, Tirzepatide), nutritional counseling, and medically supervised sustainable weight management.</p><span class="service-tag">GLP-1 Available</span></a>
     <a href="#trt" class="service-card reveal"><h3>Hormone Therapy</h3><p>Bioidentical hormone replacement (BHRT) for men and women. Testosterone optimization, menopause management, thyroid and adrenal health.</p><span class="service-tag">BHRT &middot; HRT &middot; TRT</span></a>
     <a href="#schedule" class="service-card reveal"><h3>Functional Medicine</h3><p>Root-cause medicine beyond symptoms. Advanced lab testing, gut health, inflammation, nutrient optimization, and personalized healing protocols.</p><span class="service-tag">Root-Cause Focus</span></a>
-    <a href="#schedule" class="service-card reveal"><h3>IV Therapy &amp; Infusions</h3><p>Customized IV nutrient therapy for energy, immunity, hydration, athletic recovery, and NAD+ infusions for cellular rejuvenation.</p><span class="service-tag">Wellness Infusions</span></a>
     <a href="#schedule" class="service-card reveal"><h3>Pediatric &amp; Well-Child</h3><p>Newborn care, immunizations, developmental screenings, ADHD evaluation, and adolescent medicine in a family-friendly environment.</p><span class="service-tag">Newborn to Teen</span></a>
     <a href="#schedule" class="service-card reveal"><h3>Chronic Disease Management</h3><p>Ongoing care for diabetes, hypertension, heart disease, asthma, autoimmune conditions, and metabolic syndrome.</p><span class="service-tag">Long-Term Wellness</span></a>
     <a href="#schedule" class="service-card reveal"><h3>Preventive Wellness</h3><p>Annual exams, cancer screenings, laboratory testing, cardiovascular risk assessment, and lifestyle medicine to keep you thriving.</p><span class="service-tag">Stay Ahead of Disease</span></a>
@@ -496,7 +512,6 @@
         <li><a href="#weightloss">Weight Loss (GLP-1)</a></li>
         <li><a href="#trt">Hormone Therapy / TRT</a></li>
         <li><a href="#services">Functional Medicine</a></li>
-        <li><a href="#services">IV Therapy</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -516,7 +531,7 @@
         <li><a href="tel:12084238132">(208) 423-8132</a></li>
         <li>Fax: (208) 203-6420</li>
         <li>Mon&ndash;Thu: 9am&ndash;4pm</li>
-        <li><a href="mailto:info@rothfamilymed.com">info@rothfamilymed.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#6f060109002f1d001b07090e02060316020a0b410c0002"><span class="__cf_email__" data-cfemail="f59c9b939ab5879a819d9394989c998c989091db969a98">[email&#160;protected]</span></a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -543,9 +558,12 @@
   <a href="#schedule" class="cta-book">Book</a>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function toggleMenu(){document.getElementById("mobileMenu").classList.toggle("open");}
   document.addEventListener("click",function(e){var m=document.getElementById("mobileMenu"),b=document.querySelector(".hamburger");if(m&&m.classList.contains("open")&&!m.contains(e.target)&&!b.contains(e.target)){m.classList.remove("open");}});
+  function switchTab(e,tabId){document.querySelectorAll(".booking-tab").forEach(function(t){t.classList.remove("active");});document.querySelectorAll(".booking-tab-content").forEach(function(c){c.classList.remove("active");});e.target.classList.add("active");document.getElementById(tabId).classList.add("active");}
+  var reveals=document.querySelectorAll(".reveal");
+  var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry,i){if(entry.isIntersecting){setTimeout(function(){entry.target.classList.add("visible");},i*80);observer.
   function switchTab(e,tabId){document.querySelectorAll(".booking-tab").forEach(function(t){t.classList.remove("active");});document.querySelectorAll(".booking-tab-content").forEach(function(c){c.classList.remove("active");});e.target.classList.add("active");document.getElementById(tabId).classList.add("active");}
   var reveals=document.querySelectorAll(".reveal");
   var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry,i){if(entry.isIntersecting){setTimeout(function(){entry.target.classList.add("visible");},i*80);observer.unobserve(entry.target);}});},{threshold:0.1});
