@@ -566,11 +566,6 @@
   var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry,i){if(entry.isIntersecting){setTimeout(function(){entry.target.classList.add("visible");},i*80);observer.unobserve(entry.target);}});},{threshold:0.1});
   reveals.forEach(function(el){observer.observe(el);});
   document.querySelectorAll(".service-card.reveal").forEach(function(card,i){card.style.transitionDelay=(i*55)+"ms";});
-</script>
-window.$zoho=window.$zoho || {};
-$zoho.salesiq=$zoho.salesiq||{ready:function(){}};
-</script>
 
-<script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=YOURCODE" defer></script>
 </body>
 </html>
